@@ -61,3 +61,12 @@
 [submodule "bundle/mru"]
 	path = bundle/mru
 	url = https://github.com/yegappan/mru.git
+[submodule "bundle/vim-bufferline"]
+	path = bundle/vim-bufferline
+	url = https://github.com/bling/vim-bufferline.git
+[submodule "vim-minibufexpl"]
+	path = bundle/vim-minibufexpl
+	url = https://github.com/techlivezheng/vim-plugin-minibufexpl.git
+[submodule "bundle/vim-gitgutter"]
+	path = bundle/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
