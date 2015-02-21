@@ -1,10 +1,26 @@
 from invoke import task
 import subprocess
 import os
+import platform
 
 
 def git(git_cwd="~/", *args):
     return subprocess.check_call(['git'] + list(args), cwd=git_cwd)
+
+
+def package_manager(dist):
+    return {
+        'fedora': 'yum',
+        'debian': 'apt'
+    }[dist]
+
+
+@task
+def install_packages():
+    dist = platform.linux_distribution()
+    for pack in ['ctags', 'ack']:
+        subprocess.call(
+            ["sudo", package_manager(dist[0].lower()), "install", pack])
 
 
 def get_home():
@@ -25,6 +41,8 @@ def init_submodules():
 
 @task
 def build():
+    print "Installing packages"
+    install_packages()
     print "Creating sym link"
     create_sym_link()
     print "Init submodules "

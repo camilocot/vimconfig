@@ -250,14 +250,14 @@ set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.i
 " mkdir -p ~/.vim/autoload ~/.vim/bundle
 " curl -so ~/.vim/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/HEAD/autoload/pathogen.vim
 " Now you can install any plugin into a .vim/bundle/plugin-name/ folder
-let g:pathogen_disabled = ["vim-autoclose", "vim-minibufexpl"] 
+let g:pathogen_disabled = ["vim-autoclose", "vim-minibufexpl"]
 call pathogen#infect()
 
 " Execute flake8 every save of a python  file / default key F7
 " autocmd BufWritePost *.py call Flake8()
 
 " Autopep8 default key F8
-" autocmd FileType python map <buffer> <F3> :call Autopep8()<CR>
+autocmd FileType python map <buffer> <F3> :call Autopep8()<CR>
 
 " Statusbar tricks
 set statusline+=%#warningmsg#
@@ -271,7 +271,7 @@ let g:syntastic_loc_list_height=5
 let g:SuperTabDefaultCompletionType = "context"
 
 " Let pydoc open in new window / <leader>pw
-" let g:pydoc_open_cmd = 'tabnew' 
+" let g:pydoc_open_cmd = 'tabnew'
 
 " Better navigating through omnicomplete option list
 " See http://stackoverflow.com/questions/2170023/how-to-map-keys-for-popup-menu-in-vim
@@ -290,7 +290,7 @@ endfunction
 "inoremap <silent><C-j> <C-R>=OmniPopup('j')<CR>
 "inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
 
-" Now we just enable the menu and pydoc preview to get the most useful 
+" Now we just enable the menu and pydoc preview to get the most useful
 set completeopt=menuone,longest,preview
 
 " gundo
@@ -306,10 +306,11 @@ nnoremap <leader>b :CtrlPBuffer<CR>
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 map <F3> :NERDTreeToggle<CR>
+nnoremap <leader>f :NERDTreeFind<CR>
 " Close vim if the only vwindow open is Nerdtree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-" Jedi Vim 
+" Jedi Vim
 " pip install jedi or git submodule update --init inside the submodule
 " directory
 let g:jedi#auto_vim_configuration = 0
@@ -329,7 +330,7 @@ endif
 let g:neocomplcache_omni_functions['python'] = 'jedi#completions'
 let g:jedi#popup_on_dot = 0
 
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ %{fugitive\#statusline()} 
+set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ %{fugitive\#statusline()}
 
 
 """"""""""""""""""""""""""""""
@@ -473,3 +474,25 @@ endfunction
 nnoremap s :<C-U>exec "normal i".RepeatChar(nr2char(getchar()), v:count1)<CR>
 nnoremap S :<C-U>exec "normal a".RepeatChar(nr2char(getchar()), v:count1)<CR>
 map <F12> :TlistToggle<CR>
+
+" Fix Cursor in TMUX
+if exists('$TMUX')
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+  set ttymouse=xterm2
+else
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
+
+
+noremap <silent> <leader>r :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+nnoremap <leader>g :GitGutterToggle<CR>
+nnoremap <leader><space> :StripWhitespace<CR>
+
+nmap <F7> :TagbarToggle<CR>
+
+" Go crazy!
+if filereadable(expand("~/.vimrc.local"))
+  source ~/.vimrc.local
+endif
