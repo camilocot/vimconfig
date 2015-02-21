@@ -164,6 +164,7 @@ au InsertLeave * match ExtraWhitespace /\s\+$/
 set t_Co=256
 color wombat256mod
 
+
 " Enable syntax highlighting
 " You need to reload this file for the change to apply
 filetype on
@@ -175,9 +176,14 @@ syntax on
 " set tw=79   " width of document (used by gd)
 " set nowrap  " don't automatically wrap on load
 " set fo-=t   " don't automatically wrap text when typing
-set colorcolumn=80
-highlight ColorColumn ctermbg=233
+set colorcolumn=100
 
+" Set Gutter colors
+highlight clear SignColumn
+highlight GitGutterAdd ctermfg=green
+highlight GitGutterChange ctermfg=yellow
+highlight GitGutterDelete ctermfg=red
+highlight GitGutterChangeDelete ctermfg=yellow
 
 " easier formatting of paragraphs
 vmap Q gq
