@@ -228,7 +228,7 @@ set cursorline
 set list "display spaces
 set lcs=tab:▸\ ,trail:· ",eol:¬,nbsp:_ "everything else
 
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.o,*~,*.pyc,.git\*,.hg\*,.svn\*     " Linux/MacOSX
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.o,*~,*.pyc,.git\*,.hg\*,.svn\*,*/target/*     " Linux/MacOSX
 
 " Height of the command bar
 " set cmdheight=2
