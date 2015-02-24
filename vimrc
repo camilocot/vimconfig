@@ -173,10 +173,14 @@ syntax on
 
 " Showing line numbers and length
 " set number  " show line numbers
-" set tw=79   " width of document (used by gd)
-" set nowrap  " don't automatically wrap on load
-" set fo-=t   " don't automatically wrap text when typing
-set colorcolumn=100
+set tw=79   " width of document (used by gd)
+set nowrap  " don't automatically wrap on load
+set fo-=t   " don't automatically wrap text when typing
+
+highlight OverLength ctermbg=180 ctermfg=black guibg=#592929
+match OverLength /\%81v.\+/
+highlight ColorColumn ctermbg=180
+set colorcolumn=80
 
 " Set Gutter colors
 highlight clear SignColumn
