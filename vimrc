@@ -1,9 +1,3 @@
-" Sample .vimrc file by Martin Brochhaus
-" Presented at PyCon APAC 2012
-
-" Automatic reloading of .vimrc
-" autocmd! bufwritepost .vimrc,vimrc source %
-
 " Make Vim more useful
 set nocompatible
 
@@ -145,7 +139,7 @@ map <Leader>n <esc>:tabprevious<CR>
 map <Leader>m <esc>:tabnext<CR>
 
 " map sort function to a key
-vnoremap <Leader>s :sort<CR>
+" vnoremap <Leader>s :sort<CR>
 
 " easier moving of code blocks
 " Try to go into visual mode (v), thenselect several lines of code here and
@@ -177,9 +171,9 @@ set tw=79   " width of document (used by gd)
 set nowrap  " don't automatically wrap on load
 set fo-=t   " don't automatically wrap text when typing
 
-highlight OverLength ctermbg=180 ctermfg=black guibg=#592929
+highlight OverLength ctermbg=0 ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
-highlight ColorColumn ctermbg=180
+highlight ColorColumn ctermbg=0
 set colorcolumn=80
 
 " Set Gutter colors
@@ -260,19 +254,19 @@ set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.i
 " mkdir -p ~/.vim/autoload ~/.vim/bundle
 " curl -so ~/.vim/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/HEAD/autoload/pathogen.vim
 " Now you can install any plugin into a .vim/bundle/plugin-name/ folder
-let g:pathogen_disabled = ["vim-autoclose", "vim-minibufexpl"]
+let g:pathogen_disabled = ["vim-autoclose", "vim-minibufexpl", "vim-bufferline"]
 call pathogen#infect()
 
 " Execute flake8 every save of a python  file / default key F7
 " autocmd BufWritePost *.py call Flake8()
 
 " Autopep8 default key F8
-autocmd FileType python map <buffer> <F3> :call Autopep8()<CR>
+autocmd FileType python map <buffer> <F10> :call Autopep8()<CR>
 
 " Statusbar tricks
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 let g:syntastic_auto_loc_list=1
 let g:syntastic_loc_list_height=5
 
@@ -315,7 +309,7 @@ nnoremap <leader>b :CtrlPBuffer<CR>
 " Open automaticaly if no file is especified
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-map <F3> :NERDTreeToggle<CR>
+map <leader><F3> :NERDTreeToggle<CR>
 nnoremap <leader>f :NERDTreeFind<CR>
 " Close vim if the only vwindow open is Nerdtree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
@@ -340,7 +334,7 @@ endif
 let g:neocomplcache_omni_functions['python'] = 'jedi#completions'
 let g:jedi#popup_on_dot = 0
 
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ %{fugitive\#statusline()}
+" set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ %{fugitive\#statusline()}
 
 
 """"""""""""""""""""""""""""""
@@ -352,6 +346,7 @@ set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ 
 
 let g:airline_powerline_fonts = 1
 let g:airline_theme='powerlineish'
+let g:airline#extensions#tabline#enabled = 1
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
@@ -483,7 +478,6 @@ function! RepeatChar(char, count)
 endfunction
 nnoremap s :<C-U>exec "normal i".RepeatChar(nr2char(getchar()), v:count1)<CR>
 nnoremap S :<C-U>exec "normal a".RepeatChar(nr2char(getchar()), v:count1)<CR>
-map <F12> :TlistToggle<CR>
 
 " Fix Cursor in TMUX
 if exists('$TMUX')
@@ -495,12 +489,25 @@ else
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
 
-
+" reload vimrc
 noremap <silent> <leader>r :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+
+" Toggle git gutter
 nnoremap <leader>g :GitGutterToggle<CR>
+
+" Strip whitespace
 nnoremap <leader><space> :StripWhitespace<CR>
 
+" Tagbar toggle
 nmap <F7> :TagbarToggle<CR>
+
+" TList toggle
+map <F12> :TlistToggle<CR>
+
+" Toggle Maximizer
+nnoremap <silent><F3> :MaximizerToggle<CR>
+vnoremap <silent><F3> :MaximizerToggle<CR>gv
+inoremap <silent><F3> <C-o>:MaximizerToggle<CR>
 
 " Go crazy!
 if filereadable(expand("~/.vimrc.local"))
