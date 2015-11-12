@@ -449,3 +449,9 @@ vmap <silent> <leader>x :FormatXML<CR>
 
 " Code folding in JS
 au FileType javascript call JavaScriptFold()
+
+" Code folding coffee script
+autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
+
+" Two-space indentation coffess script
+autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
