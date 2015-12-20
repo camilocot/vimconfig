@@ -210,6 +210,7 @@ let g:syntastic_auto_loc_list=1
 let g:syntastic_loc_list_height=5
 let g:syntastic_check_on_wq = 0
 let g:syntastic_java_checkers = []
+let g:syntastic_python_flake8_args='--ignore=E501'
 
 " Supertab completion options
 let g:SuperTabDefaultCompletionType = "context"
@@ -455,3 +456,6 @@ autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
 
 " Two-space indentation coffess script
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
+
+" yaml indentation
+au FileType yaml setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2

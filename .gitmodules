@@ -113,3 +113,6 @@
 [submodule "bundle/tern_for_vim"]
 	path = bundle/tern_for_vim
 	url = https://github.com/ternjs/tern_for_vim.git
+[submodule "bundle/ansible.vim"]
+	path = bundle/ansible.vim
+	url = https://github.com/pearofducks/ansible-vim.git
