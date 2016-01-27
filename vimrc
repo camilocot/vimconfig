@@ -32,7 +32,7 @@ set undodir=~/.vim/tmp
 set undolevels=1000
 set undoreload=10000
 " auto cleanup on startup:
-silent execute '!rm ~/.vim/tmp/* &> /dev/null'
+silent execute '!rm -f ~/.vim/tmp/* > /dev/null 2>&1'
 
 " Better copy & paste
 " When you want to paste large blocks of code into vim, press F2 before you
