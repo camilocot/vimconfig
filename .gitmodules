@@ -105,10 +105,7 @@
 	path = bundle/tabular
 	url = git://github.com/godlygeek/tabular.git
 [submodule "/home/ccota/.vim/bundle/vim-javascript-syntax"]
-	path = /home/ccota/.vim/bundle/vim-javascript-syntax
-	url = https://github.com/jelera/vim-javascript-syntax.git
-[submodule "/home/ccota/.vim/bundle/vim-javascript-syntax.git"]
-	path = /home/ccota/.vim/bundle/vim-javascript-syntax.git
+	path = bundle/vim-javascript-syntax.git
 	url = https://github.com/jelera/vim-javascript-syntax.git
 [submodule "bundle/tern_for_vim"]
 	path = bundle/tern_for_vim
@@ -119,3 +116,6 @@
 [submodule "bundle/Dockerfile"]
 	path = bundle/Dockerfile
 	url = https://github.com/ekalinin/Dockerfile.vim.git
+[submodule "bundle/SimpylFold"]
+	path = bundle/SimpylFold
+	url = https://github.com/tmhedberg/SimpylFold.git
