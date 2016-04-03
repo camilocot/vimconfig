@@ -154,13 +154,6 @@ nmap Q gqap
 set history=700
 set undolevels=700
 
-" Real programmers don't use TABs but spaces
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set shiftround
-set expandtab
-
 " Make search case insensitive
 " Highlight search results
 set hlsearch
@@ -459,3 +452,19 @@ autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 
 " yaml indentation
 au FileType yaml setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
+
+" Add the proper PEP8 indentation
+au BufNewFile,BufRead *.py
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
+
+" Add js / html / css indentation
+au BufNewFile,BufRead *.js, *.html, *.css
+    \ set tabstop=2
+    \ set softtabstop=2
+    \ set shiftwidth=2
