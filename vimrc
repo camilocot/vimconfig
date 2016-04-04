@@ -377,3 +377,7 @@ au BufNewFile,BufRead *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4 textwid
 
 " Add js / html / css indentation
 au BufNewFile,BufRead *.js, *.html, *.css setlocal tabstop=2 softtabstop=2 shiftwidth=2
+
+" remap snipmate trigger. <tab> is used by YCM
+imap <C-\> <esc>a<Plug>snipMateNextOrTrigger
+smap <C-\> <Plug>snipMateNextOrTrigger
