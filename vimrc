@@ -364,10 +364,7 @@ vmap <silent> <leader>x :FormatXML<CR>
 au FileType javascript call JavaScriptFold()
 
 " Code folding coffee script
-autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
-
-" Two-space indentation coffess script
-autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
+autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable shiftwidth=2 expandtab 
 
 " yaml indentation
 au FileType yaml setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
@@ -376,7 +373,9 @@ au FileType yaml setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
 au BufNewFile,BufRead *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab autoindent fileformat=unix
 
 " Add js / html / css indentation
-au BufNewFile,BufRead *.js, *.html, *.css setlocal tabstop=2 softtabstop=2 shiftwidth=2
+au BufNewFile,BufRead *.js setlocal tabstop=2 softtabstop=2 shiftwidth=2
+au BufNewFile,BufRead *.css setlocal tabstop=2 softtabstop=2 shiftwidth=2
+au BufNewFile,BufRead *.html setlocal tabstop=2 softtabstop=2 shiftwidth=2
 
 " remap snipmate trigger. <tab> is used by YCM
 imap <C-\> <esc>a<Plug>snipMateNextOrTrigger
