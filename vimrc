@@ -373,7 +373,7 @@ au FileType yaml setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
 au BufNewFile,BufRead *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab autoindent fileformat=unix
 
 " Add js / html / css indentation
-au BufNewFile,BufRead *.js setlocal tabstop=2 softtabstop=2 shiftwidth=2
+au BufNewFile,BufRead *.js setlocal tabstop=2 softtabstop=2 shiftwidth=2 foldlevel=99 expandtab
 au BufNewFile,BufRead *.css setlocal tabstop=2 softtabstop=2 shiftwidth=2
 au BufNewFile,BufRead *.html setlocal tabstop=2 softtabstop=2 shiftwidth=2
 
