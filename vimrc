@@ -172,8 +172,6 @@ set lcs=tab:▸\ ,trail:· ",eol:¬,nbsp:_ "everything else
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.o,*~,*.pyc,.git\*,.hg\*,.svn\*,*/target/*     " Linux/MacOSX
 
-" Treat .json files as .js
-autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
 
 " Better line-height
 set linespace=2
@@ -364,7 +362,7 @@ vmap <silent> <leader>x :FormatXML<CR>
 au FileType javascript call JavaScriptFold()
 
 " Code folding coffee script
-autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable shiftwidth=2 expandtab 
+autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable shiftwidth=2 expandtab
 
 " yaml indentation
 au FileType yaml setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
@@ -373,9 +371,14 @@ au FileType yaml setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
 au BufNewFile,BufRead *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab autoindent fileformat=unix
 
 " Add js / html / css indentation
-au BufNewFile,BufRead *.js setlocal tabstop=2 softtabstop=2 shiftwidth=2 foldlevel=99 expandtab
+au BufNewFile,BufRead *.js setlocal tabstop=4 softtabstop=4 shiftwidth=4 foldlevel=99 expandtab fileformat=unix
 au BufNewFile,BufRead *.css setlocal tabstop=2 softtabstop=2 shiftwidth=2
 au BufNewFile,BufRead *.html setlocal tabstop=2 softtabstop=2 shiftwidth=2
+au BufNewFile,BufRead *.json setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+au BufNewFile,BufRead *.xml setlocal expandtab ts=2 sw=2 ai
+
+" Treat .json files as .js
+autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
 
 " remap snipmate trigger. <tab> is used by YCM
 imap <C-\> <esc>a<Plug>snipMateNextOrTrigger
