@@ -372,10 +372,8 @@ au BufNewFile,BufRead *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4 textwid
 
 " Add js / html / css indentation
 au BufNewFile,BufRead *.js setlocal tabstop=4 softtabstop=4 shiftwidth=4 foldlevel=99 expandtab fileformat=unix
-au BufNewFile,BufRead *.css setlocal tabstop=2 softtabstop=2 shiftwidth=2
-au BufNewFile,BufRead *.html setlocal tabstop=2 softtabstop=2 shiftwidth=2
-au BufNewFile,BufRead *.json setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-au BufNewFile,BufRead *.xml setlocal expandtab ts=2 sw=2 ai
+au BufNewFile,BufRead *.css,*.html setlocal tabstop=2 softtabstop=2 shiftwidth=2
+au BufNewFile,BufRead *.yaml,*.yml,*.json setlocal expandtab ts=2 sw=2 ai
 
 " Treat .json files as .js
 autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
