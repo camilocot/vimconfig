@@ -131,3 +131,6 @@
 [submodule "/home/ccota/.vim/bundle/vim-go"]
 	path = /home/ccota/.vim/bundle/vim-go
 	url = https://github.com/fatih/vim-go.git
+[submodule "bundle/vim-obsession"]
+	path = bundle/vim-obsession
+	url = git://github.com/tpope/vim-obsession.git
