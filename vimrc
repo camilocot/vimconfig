@@ -372,6 +372,7 @@ au BufNewFile,BufRead *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4 textwid
 
 " Add js / html / css indentation
 au BufNewFile,BufRead *.js setlocal tabstop=4 softtabstop=4 shiftwidth=4 foldlevel=99 expandtab fileformat=unix
+au BufNewFile,BufRead *.xml setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab fileformat=unix
 au BufNewFile,BufRead *.css,*.html setlocal tabstop=2 softtabstop=2 shiftwidth=2
 au BufNewFile,BufRead *.yaml,*.yml,*.json setlocal expandtab ts=2 sw=2 ai
 
@@ -381,3 +382,5 @@ autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
 " remap snipmate trigger. <tab> is used by YCM
 imap <C-\> <esc>a<Plug>snipMateNextOrTrigger
 smap <C-\> <Plug>snipMateNextOrTrigger
+
+let g:vim_markdown_folding_disabled = 1
