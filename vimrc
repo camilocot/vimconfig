@@ -187,7 +187,7 @@ set encoding=utf-8
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc,.pdf,.exe
 
 " Setup Pathogen to manage your plugins
-let g:pathogen_disabled = ["vim-autoclose", "vim-minibufexpl", "vim-bufferline", "ultisnips" ]
+let g:pathogen_disabled = ["vim-autoclose", "vim-minibufexpl", "vim-bufferline", "ultisnips" , "vim-go" ]
 call pathogen#infect()
 
 " Autopep8 default key F8
@@ -384,3 +384,6 @@ imap <C-\> <esc>a<Plug>snipMateNextOrTrigger
 smap <C-\> <Plug>snipMateNextOrTrigger
 
 let g:vim_markdown_folding_disabled = 1
+
+"https://github.com/Valloric/YouCompleteMe/issues/2064
+let g:ycm_path_to_python_interpreter = '/usr/bin/python'
